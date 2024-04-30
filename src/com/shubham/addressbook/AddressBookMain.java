@@ -36,17 +36,39 @@ public class AddressBookMain {
         System.out.println("Email:"+contact.getEmail());
     }
 
-    public void display(){
-        System.out.println(contact.toString());
+    public void editContact(){
+        System.out.println("Enter the First Name to edit contact");
+        String fName = scanner.next();
+        if(fName.equals(contact.getFirstName()))
+        {
+            System.out.println("contact found.");
+            System.out.println("Enter the LastName:");
+            contact.setLastName(scanner.next());
+            System.out.println("Enter the Address:");
+            contact.setAddress(scanner.next());
+            System.out.println("Enter the City:");
+            contact.setCity(scanner.next());
+            System.out.println("Enter the State:");
+            contact.setState(scanner.next());
+            System.out.println("Enter the Zipcode:");
+            contact.setZipcode(scanner.next());
+            System.out.println("Enter the PhoneNumber:");
+            contact.setPhoneNumber(scanner.next());
+            System.out.println("Enter the Email:");
+            contact.setEmail(scanner.next());
 
+        } else {
+            System.out.println("Given Name of contact is Not found:");
+        }
     }
-
 
     public static void main(String[] args) {
         System.out.println("Welcome To Address Book");
 
         AddressBookMain addressbookmain = new AddressBookMain();
         addressbookmain.inputContact();
+        addressbookmain.displayContact();
+        addressbookmain.editContact();
         addressbookmain.displayContact();
 
     }
