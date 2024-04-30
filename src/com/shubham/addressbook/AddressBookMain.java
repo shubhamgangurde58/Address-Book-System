@@ -26,14 +26,19 @@ public class AddressBookMain {
     }
 
     public void displayContact(){
-        System.out.println("FirstName:"+contact.getFirstName());
-        System.out.println("LastName:"+contact.getLastName());
-        System.out.println("Address:"+contact.getAddress());
-        System.out.println("City:"+contact.getCity());
-        System.out.println("State:"+contact.getState());
-        System.out.println("Zipcode:"+contact.getZipcode());
-        System.out.println("PhoneNumber:"+contact.getPhoneNumber());
-        System.out.println("Email:"+contact.getEmail());
+        if(contact==null)
+        {
+            System.out.println("contact is not avalible");
+        }else {
+            System.out.println("FirstName:" + contact.getFirstName());
+            System.out.println("LastName:" + contact.getLastName());
+            System.out.println("Address:" + contact.getAddress());
+            System.out.println("City:" + contact.getCity());
+            System.out.println("State:" + contact.getState());
+            System.out.println("Zipcode:" + contact.getZipcode());
+            System.out.println("PhoneNumber:" + contact.getPhoneNumber());
+            System.out.println("Email:" + contact.getEmail());
+        }
     }
 
     public void editContact(){
@@ -62,13 +67,26 @@ public class AddressBookMain {
         }
     }
 
+    public void deleteContact(){
+        System.out.println("Enter The firstName to Delete The Contact:");
+        String fName = scanner.next();
+        if(fName.equals(contact.getFirstName()))
+        {
+            contact = null;
+            System.out.println("Contact Deleted");
+        }else{
+            System.out.println("contact not found");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome To Address Book");
-
         AddressBookMain addressbookmain = new AddressBookMain();
         addressbookmain.inputContact();
         addressbookmain.displayContact();
         addressbookmain.editContact();
+        addressbookmain.displayContact();
+        addressbookmain.deleteContact();
         addressbookmain.displayContact();
 
     }
